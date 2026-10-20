@@ -1,0 +1,60 @@
+{
+    "gadgets_mankind": {
+        "id": "gadgets_mankind",
+        "name": "Gadgets Mankind Auto-Dubber",
+        "category": "Home Gadgets & Tech",
+        "status": "ACTIVE",
+        "source": "Telegram @allterapost (Oldest ➔ Newest)",
+        "ai_engine": "Groq Whisper (Hindi ➔ English) + Edge-TTS Neural Dubbing",
+        "destinations": [
+            {"platform": "instagram", "handle": "@gadgetsmankind", "type": "Reels (9:16)"},
+            {"platform": "facebook", "handle": "Gadgets mankind", "type": "Page Video"}
+        ],
+        "cadence": "Every 3 Hours (8 Reels / 24h)",
+        "last_run": null,
+        "next_run": "In 3 hours",
+        "total_posts": 0,
+        "quota_limit": "25 Reels / day",
+        "pipeline_path": "C:\\Users\\ashwani\\Desktop\\GadgetsMankind_Automation",
+        "health": "ONLINE"
+    },
+    "stylish_girl_dress": {
+        "id": "stylish_girl_dress",
+        "name": "Stylish Girl Dress Studio",
+        "category": "Fashion & Couture",
+        "status": "ACTIVE",
+        "source": "Universal Studio Composer & Background Scheduler",
+        "ai_engine": "Groq LLaMA 3.3 Viral Copywriter & Tag Optimizer",
+        "destinations": [
+            {"platform": "instagram", "handle": "@stylishgirldress", "type": "Reels & Carousels"},
+            {"platform": "facebook", "handle": "Stylishgirldress", "type": "Page Posts"},
+            {"platform": "threads", "handle": "@stylishgirldress", "type": "Threads Feed"}
+        ],
+        "cadence": "On-Demand & Scheduled Queue",
+        "last_run": "2026-10-19 07:14:22",
+        "next_run": "Active Queue",
+        "total_posts": 12,
+        "quota_limit": "25 Reels / day",
+        "pipeline_path": "C:\\Users\\ashwani\\Desktop\\MySocialTool",
+        "health": "ONLINE"
+    },
+    "new_anime_find": {
+        "id": "new_anime_find",
+        "name": "New Anime Find Curation",
+        "category": "Anime & Entertainment",
+        "status": "STANDBY",
+        "source": "Anime Clips Archive",
+        "ai_engine": "Groq Audio Transcription",
+        "destinations": [
+            {"platform": "instagram", "handle": "@newa.nimefind", "type": "Reels"},
+            {"platform": "facebook", "handle": "New anime find", "type": "Page Video"}
+        ],
+        "cadence": "Configurable (Every 4 Hours)",
+        "last_run": null,
+        "next_run": "Standing By",
+        "total_posts": 0,
+        "quota_limit": "25 Reels / day",
+        "pipeline_path": null,
+        "health": "READY"
+    }
+}
