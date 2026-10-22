@@ -139,6 +139,16 @@ def proxy_trigger():
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+BESTFIND_BOT_URL = os.environ.get("BESTFIND_BOT_URL", "https://bestfindautobot.onrender.com")
+
+@app.post("/api/bestfind/trigger")
+def proxy_bestfind_trigger():
+    try:
+        r = requests.post(f"{BESTFIND_BOT_URL}/trigger-now", timeout=10)
+        return r.json()
+    except Exception as e:
+        return {"status": "error", "message": f"Best Find Bot notice: {e}"}
+
 @app.get("/", response_class=HTMLResponse)
 def master_dashboard():
     gm = get_live_gadgets_bot_data()
@@ -273,8 +283,8 @@ def master_dashboard():
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-4">
                     <div class="text-[11px] text-zinc-500 uppercase font-semibold font-mono">Active Bot Fleet</div>
-                    <div class="text-2xl font-bold text-white mt-1">1 Bot Live</div>
-                    <div class="text-xs text-emerald-400 mt-0.5">● Gadgets Mankind</div>
+                    <div class="text-2xl font-bold text-white mt-1">2 Bots Live</div>
+                    <div class="text-xs text-emerald-400 mt-0.5">● Gadgets Mankind + Best Find</div>
                 </div>
 
                 <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-4">
@@ -352,18 +362,53 @@ def master_dashboard():
                         </div>
                     </div>
 
-                    <!-- CARD 2: ADD NEXT AUTOMATION BOT -->
-                    <div class="border border-dashed border-zinc-800 rounded-xl p-5 flex flex-col items-center justify-center text-center space-y-3 bg-zinc-950/40">
-                        <div class="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 text-lg">
-                            ➕
+                    <!-- CARD 2: BEST FIND AUTONOMOUS PUBLISHER -->
+                    <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-5 flex flex-col justify-between hover:border-zinc-700 transition-all shadow-xl">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <div class="text-xs uppercase font-semibold text-amber-500 tracking-wider font-mono">Useful Products & Reviews</div>
+                                    <div class="text-base font-bold text-white mt-0.5">Best Find Autonomous Publisher</div>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+                                    <span class="text-xs text-amber-400 font-semibold">7-Day Optimizer</span>
+                                </div>
+                            </div>
+
+                            <!-- EXPERIMENT CADENCE BANNER -->
+                            <div class="p-3.5 bg-gradient-to-r from-zinc-900 to-zinc-900/40 border border-zinc-800 rounded-lg">
+                                <div class="text-[11px] text-zinc-400 uppercase font-semibold tracking-wider font-mono flex items-center justify-between">
+                                    <span>Cadence Experiment Slots:</span>
+                                    <span class="text-amber-400 font-bold">4 Daily Slots</span>
+                                </div>
+                                <div class="text-sm font-bold font-mono text-amber-300 mt-1">09:30 &bull; 14:00 &bull; 18:30 &bull; 21:30 IST</div>
+                                <div class="text-[11px] text-zinc-500 mt-0.5">Analyzes 7-day engagement & locks winning timeframe</div>
+                            </div>
+
+                            <div class="space-y-2 text-xs text-zinc-300 pt-2 border-t border-zinc-900">
+                                <div><span class="text-zinc-500 font-mono">SOURCE:</span> Telegram @allterapost</div>
+                                <div><span class="text-zinc-500 font-mono">LANGUAGE:</span> Original Audio Preserved (No Translation)</div>
+                                <div><span class="text-zinc-500 font-mono">MONETIZATION:</span> Line 1 Amazon Buy Link ({amazon_tag})</div>
+                                <div class="pt-1 flex flex-wrap gap-1.5">
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#0066FF]">
+                                        Facebook Page: best find (ID: 255894584272909)
+                                    </span>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <div class="text-sm font-semibold text-white">Add Next Automation Bot</div>
-                            <p class="text-xs text-zinc-500 max-w-xs mt-1">Ready for Anime Clips, Fashion Dresses, or Movie Scenes anytime.</p>
+
+                        <!-- Bot Action Controls: Trigger + Panel Link -->
+                        <div class="pt-4 border-t border-zinc-900 mt-4 space-y-2.5">
+                            <div class="flex items-center space-x-2">
+                                <button onclick="triggerBestFindNow()" class="flex-1 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-zinc-950 font-bold text-xs rounded-lg transition-all shadow-sm flex items-center justify-center space-x-1">
+                                    <span>⚡ Trigger Best Find Video</span>
+                                </button>
+                                <a href="https://bestfindautobot.onrender.com" target="_blank" class="px-3 py-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 font-semibold text-xs rounded-lg border border-zinc-800 flex items-center space-x-1">
+                                    <span>Bot Panel ↗</span>
+                                </a>
+                            </div>
                         </div>
-                        <span class="px-2.5 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[11px] text-zinc-500 font-mono">
-                            Multi-Account Architecture Ready
-                        </span>
                     </div>
 
                 </div>
@@ -480,6 +525,17 @@ def master_dashboard():
                             fetchMasterLogs();
                         }})
                         .catch(e => alert("Error triggering cycle: " + e));
+                }}
+            }}
+
+            function triggerBestFindNow() {{
+                if (confirm("Publish the next video to Facebook Page 'best find' right now?")) {{
+                    fetch('/api/bestfind/trigger', {{ method: 'POST' }})
+                        .then(r => r.json())
+                        .then(d => {{
+                            alert(d.message || "Best Find cycle triggered!");
+                        }})
+                        .catch(e => alert("Error triggering Best Find: " + e));
                 }}
             }}
 

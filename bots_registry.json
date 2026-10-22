@@ -18,6 +18,25 @@
         "pipeline_path": "C:\\Users\\ashwani\\Desktop\\GadgetsMankind_Automation",
         "health": "ONLINE"
     },
+    "best_find": {
+        "id": "best_find",
+        "name": "Best Find Autonomous Publisher",
+        "category": "Useful Products & Gadget Reviews",
+        "status": "ACTIVE",
+        "source": "Telegram @allterapost (Language Preserved)",
+        "ai_engine": "Groq LLaMA Copywriter & 7-Day Cadence Optimizer",
+        "destinations": [
+            {"platform": "facebook", "handle": "best find", "type": "Page Video (Direct)"}
+        ],
+        "cadence": "7-Day Optimization (09:30, 14:00, 18:30, 21:30 IST)",
+        "last_run": null,
+        "next_run": "Next Cadence Slot",
+        "total_posts": 0,
+        "quota_limit": "25 Videos / day",
+        "pipeline_path": "C:\\Users\\ashwani\\Desktop\\BestFind_Automation",
+        "cloud_url": "https://bestfindautobot.onrender.com",
+        "health": "ONLINE"
+    },
     "stylish_girl_dress": {
         "id": "stylish_girl_dress",
         "name": "Stylish Girl Dress Studio",
